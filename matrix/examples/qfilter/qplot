@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Plot two quaternion time series in one figure.  NOTE: $1 is input
+# time series, $2 is filtered time series.
+
+echo "call 'qplot.gp' '$1' '$2'" | gnuplot -persist

@@ -1,0 +1,10 @@
+prefix=/media/sf_SharedVMFolder/a1/eyehuda/a1/glog/glog-0.3.3/../glog
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libglog
+Description: Google Log (glog) C++ logging framework
+Version: 0.3.3
+Libs: -L${libdir} -lglog
+Cflags: -I${includedir}

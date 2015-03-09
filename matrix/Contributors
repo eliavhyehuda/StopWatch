@@ -1,0 +1,17 @@
+A full list of contributors follows.  These people contributed code and/or
+ideas for the development of the CwMtx library.  (I think I have listed
+everyone, but if you contributed and aren't listed, let me know and I'll
+correct it):
+
+John Ahlgren		Quaternion inverse and division.
+Will DeVore		Conversion of original library to template library.
+Jeffrey T Duncan	Speed tips.
+Jiri Ecer		Quaternion ctor from exponential form.
+Harry Kuiper		Initial design and coding, structured elements,
+                        transcendental functions.
+
+
+Local Variables:
+mode: text
+fill-column: 78
+End:

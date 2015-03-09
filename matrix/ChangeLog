@@ -1,0 +1,602 @@
+2005-07-02  H. Kuiper  <hkuiper@zeno.lan>
+
+	* examples/qfilter/qfilter.cc: 
+	* stat_svector.h: 
+	* stat_smatrix.h: 
+	* stat_quatern.h: 
+	* stat_matrix.h: Gcc-3.4 is more strict with template name
+	resolution than previous versions. Non-dependent names must be
+	qualified otherwise they are considered undefined.
+
+2005-05-30  H. Kuiper  <hkuiper@zeno.lan>
+
+	* all: Changed old naming convention for functions (start with
+	capital letter) into modern convention (start with with lowercase
+	letter).
+
+2005-04-25  H. Kuiper  <hkuiper@zeno.lan>
+
+	* examples/qfilter/qplot.gp: Prints filenames in graphic.
+
+	* examples/qfilter/gen_qseries.m: Generates quaternion series with
+	perturbations in random directions w.r.t. reference rotation.
+
+2005-03-20  H. Kuiper  <hkuiper@zeno.lan>
+
+	* stat_smatrix.h: Removed unnecessary temporaries.
+
+2005-03-12  H. Kuiper  <hkuiper@mumon.lan>
+
+	* doc/cwmtx.txt: Updated.
+
+	* stat_quatern.h: Constructor that creates a quaternion from a
+	scalar.
+
+2005-03-09  H. Kuiper  <hkuiper@mumon.lan>
+
+	* doc/cwmtx.txt: Documentation updated.
+
+	* examples/qfilter/README: Improved documentation.
+
+	* examples/qfilter/qfilter.cc: Added builtin smoothing mask.
+
+2005-03-08  H. Kuiper  <hkuiper@mumon.lan>
+
+	* examples/qfilter/README: Added.
+
+	* examples/qfilter/qplot.gp: File plotq.gp renamed.
+
+	* examples/qfilter/qplot: File plot renamed.
+
+2005-03-06  H. Kuiper  <hkuiper@mumon.lan>
+
+	* examples/qfilter/qseries.txt: 
+	* examples/qfilter/qseries-filt.txt: 
+	* examples/qfilter/qfmask-smooth: 
+	* examples/qfilter/qfmask-sharpen: 
+	* examples/qfilter/qfmask-blur: 
+	* examples/qfilter/qfilter.cc: 
+	* examples/qfilter/plotq.gp: 
+	* examples/qfilter/plot: 
+	* examples/qfilter/gen_qseries.m: 
+	* examples/qfilter/Makefile: Added a quaternion filtering example
+	demonstrating how to use cwmtx quaternion class properly.
+
+2005-03-04  H. Kuiper  <hkuiper@mumon.lan>
+
+	* stat_matrix.h: Operator << now produces output compatible with
+	Octave and Matlab.
+
+2004-10-31  H. Kuiper  <hkuiper@mumon.localnet>
+
+	* test/mattest.cpp: Added tests for the new functions listed
+	below.
+
+	* stat_vector.h: Added new functions: sgn(vec).
+
+	* stat_svector.h: Added new functions: sgn(svec).
+
+	* stat_quatern.h: Added new functions: sgn(qtn), arg(qtn),
+	exp(qtn), log(qtn), pow(qtn1, qtn2).
+
+2004-05-20  H. Kuiper  <hkuiper@mumon.localnet>
+
+	* stat_coordsys.h: Speed improvement when converting a quaternion
+	into transformation matrix.
+
+2003-05-02  H. Kuiper  <hkuiper@xs4all.nl>
+
+	* test/Makefile: 
+	* Makefile: Added support for building a debug version.
+
+2002-10-26  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* doc/Doxyfile: Added doxygen config file.
+
+2002-08-16  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* stat_matrix.h (CwMtx): Bug report from Chris Mejia.  Typo in
+	operator<<(ostream &os).  Used cout instead of os.
+
+2002-08-13  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* stat_coordsys.h (CwMtx): Bug report from Chris Mejia. In the
+	file stat_coordsys.h, the function SmatFromQtn, the line
+	smat[1][2]=2*(qtn1*qtn2 + qtn1*qtn3); should be
+	smat[1][2]=2*(qtn1*qtn2 + qtn0*qtn3);
+
+2002-08-03  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* test/mattest.cpp (main): Added tests for row and column
+	matrices.
+
+	* stat_matrix.h (CwMtx): Changed printed form to be campatible
+	with Octave.
+
+2002-05-30  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* test/mattest.cpp, stat_vector.h, stat_matrix.h:
+	Changed #includes to comply with new C++ standards.
+
+2002-05-29  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* test/mattest.cpp, stat_vector.h, stat_svector.h, stat_smatrix.h,
+	  stat_quatern.h, stat_matrix.h:
+	Changed Unity and Zero objects implementation to specialised
+	templates.
+	  
+2002-01-24  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* stat_matrix.h: Better readable output from operator <<.
+
+2002-01-17  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* test/mattest.cpp: Added tests for new functions (see below).
+
+	* stat_vector.h: Added member StoreAtRow(..).
+
+	* stat_matrix.h: Added member StoreAtPosition(..).
+
+2002-01-15  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* stat_quatern.h, stat_smatrix.h, stat_svector.h:
+	Changed: Chopped long lines.
+
+	* ChangeLog: Updated.
+
+	* coordsys.h, cwmtx.h, matrix.h, quatern.h, smatrix.h, svector.h,
+	  vector.h:
+	Renamed: Added prefix "stat_" to original names.
+
+	* test/mattest.cpp: Changed: Added tests for all matrix operators.
+
+	* TODO: Updated.
+
+	* Makefile:
+	Changed: No longer deletes whole install directory (this was
+	potentially very dangerous).
+
+	* stat_coordsys.h, stat_cwmtx.h, stat_matrix.h, stat_quatern.h,
+	  stat_smatrix.h, stat_svector.h, stat_vector.h:
+	Changed: Renamed original files by prefixing them with "stat_".
+
+	* stat_coordsys.h, stat_cwmtx.h, stat_matrix.h, stat_quatern.h,
+	  stat_smatrix.h, stat_svector.h, stat_vector.h:
+	New file.
+
+2002-01-13  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* coordsys.h, matrix.h, quatern.h, smatrix.h, svector.h,
+	  test/mattest.cpp, vector.h:
+	Changed: All matrix classes no longer use dynamic storage (heap).
+	NOTE: This means that some functionality -most notably resizing and
+	mapping a matrix into another one- is lost.
+
+2002-01-04  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* ChangeLog: Updated.
+
+	* ChangeLog, matrix.h, quatern.h, smatrix.h, svector.h,
+	  test/mattest.cpp, vector.h:
+	Changed: Merged with branch tag cwmtx-static-dim.  From start of
+	branch upto tag cwmtx-static-dim-merge1.
+
+	* ChangeLog: Updated.
+
+	* test/mattest.cpp:
+	Added: More tests for matrices with structured elements.
+
+	* quatern.h, svector.h, vector.h:
+	Changed: Some more fine tuning to get the templates to work with
+	matrices with structured elements.
+
+2002-01-03  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* ChangeLog: Updated.
+
+	* matrix.h, quatern.h, smatrix.h, svector.h, vector.h:
+	Changed: Some fine tuning to get the templates to work with matrices
+	with structured elements.
+
+	* test/mattest.cpp: Added: Tests for matrices with structured elements.
+
+2001-11-01  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* test/mattest.cpp: Changed: Uncommented all test cases.
+
+2001-10-31  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* coordsys.h, cwmtx.h, matrix.h, quatern.h, smatrix.h, svector.h,
+	  vector.h, test/mattest.cpp:
+	Changed: Removed Local Variables block and reintroduced mode
+	specification line because setting the major mode in a Local Variables
+	block turns out to override c-mode-common-hook (thus disabling
+	hide-show minor mode).
+
+2001-10-29  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* matrix.h: Fixed: Use of literal 0 instead of zero object.
+
+2001-10-27  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* test/mattest.cpp:
+	Changed: Using renamed templates for testing self-dimensioning
+	matrices.
+
+	* test/Makefile: Changed: Set debugging on.
+
+	* vector.h, smatrix.h, matrix.h:
+	Changed: Renamed and moved templates (CWTMat, CWTSMat, CWTVector) for
+	creating self-dimensioning matrices.
+
+2001-10-26  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* ChangeLog: Updated.
+
+	* vector.h, smatrix.h, quatern.h, matrix.h:
+	Changed: Layout of inline functions.
+
+2001-10-21  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* ChangeLog: Updated.
+
+	* test/mattest.cpp:
+	Changed: A few more test cases for self-dimensioning matrices.
+
+	* vector.h, svector.h, smatrix.h, quatern.h, matrix.h:
+	Changed: Improved self-dimensioning code.  It is now possible to use
+	the matrix templates for generating matrices of structured elements.
+
+	* cwmtx.h, coordsys.h, doc/cwmtx.txt, TODO, README, Contributors, BUGS:
+	Changed: Emacs local variables for text mode.
+
+	* vector.h, svector.h, smatrix.h, quatern.h, matrix.h:
+	Fixed: Bug in self-dimensioning code.  Used functions Fill(..) and
+	MakeUnity() which return void instead of an object
+
+	* test/mattest.cpp:
+	Added: Begin of test cases for self-dimensioning matrices.
+
+2001-10-16  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* ChangeLog: Updated.
+
+	* vector.h, smatrix.h, matrix.h:
+	Changed: Using unsigned in templates for dimensions instead of int.
+
+	* ChangeLog: Updated.
+
+	* test/mattest.cpp:
+	Changed: Added tests for self-dimensioning matrices.
+
+	* vector.h, smatrix.h, matrix.h:
+	Changed: Added templates for generating self-dimensioning matrices.
+
+	* TODO: Updated.
+
+2001-10-15  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* TODO, ChangeLog: Updated.
+
+	* matrix.h: Changed: Improved comments.
+
+	* quatern.h: Changed: Added Unity and Zero object.
+
+	* smatrix.h:
+	Changed: Replaced literal 1's and 0's by Unity and Zero objects.
+
+	* svector.h: Changed: Added Zero object.
+
+2001-10-14  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* matrix.h: Changed: Improved comments.
+
+	* vector.h, svector.h, smatrix.h, quatern.h, matrix.h, coordsys.h:
+	Changed: Unity and zero objects were introduced to avoid literal 1's
+	and 0's in the source code.  This version only works for basic
+	numerical types.
+
+2001-10-13  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* test/mattest.cpp, coordsys.h: Changed: Only cosmetic changes.
+
+	* matrix.h:
+	Changed: Added compile-time option CC_CWTMTX_ASSUME_BASIC_TYPES that
+	uses malloc(3) instead of operator new to get a modest speed advantage
+	when C++ basic types are used as template argument for CWTMatrix<T>
+	derived objects.  Arguments of type T changed into const T & to
+	prevent large objects from being needlessly copied.
+
+	* vector.h, svector.h, smatrix.h, quatern.h:
+	Changed: Arguments of type T changed into const T & to prevent large
+	objects from being needlessly copied.
+
+2001-08-19  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* doc/cwmtx.txt: Added: Description of header file "cwmtx.h".
+
+	* ChangeLog: Updated.
+
+	* test/mattest.cpp, vector.h, svector.h, smatrix.h, quatern.h,
+	matrix.h, cwmtx.h, coordsys.h:
+	Changed: Comments starting with "///" changed into normal "//" because
+	Doc++ gets confused by them.
+
+2001-08-18  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* ChangeLog: Fixed a typo.
+
+	* ChangeLog, TODO: Updated.
+
+	* matrix.h: Changed: Chose for the naive implementation of
+	Fill(T).  No discernible speed difference with "optimised"
+	imlpementation.
+
+2001-08-17  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* ChangeLog: Updated.
+
+	* matrix.h:
+	Changed: Rewrote CWTMatrix<T>::Fill( T ) to take advantage of the new
+	contiguous memory layout.
+
+	* vector.h, svector.h, smatrix.h, quatern.h, coordsys.h:
+	Changed: Re-indented the sourcecode (done automatically by Emacs).
+
+2001-08-12  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* ChangeLog, doc/cwmtx.txt, TODO, Contributors: Updated.
+
+	* test/mattest.cpp: Added: Test for member function MakeUnit().
+
+	* vector.h: Added: Member function MakeUnit().
+
+	* svector.h, quatern.h: Added: Member function Unit().
+
+	* doc/cwmtx.txt: Changed: Updated documentation.
+
+	* vector.h, svector.h, smatrix.h, quatern.h, matrix.h, cwmtx.h,
+	  coordsys.h:
+	Changed: Layout of copyright notices.  Moved some function
+	declarations and/or definitions.
+
+	* Contributors: New file that lists all contributors.
+
+2001-08-10  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* vector.h, svector.h, smatrix.h, quatern.h, matrix.h, cwmtx.h,
+	  coordsys.h:
+	Added: Emacs mode specifications.  Otherwise Emacs thinks these
+	files contains C source code instead of C++ because of the .h
+	extension.
+
+2001-08-09  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* ChangeLog: Updated.
+
+	* svector.h, quatern.h, matrix.h:
+	Changed: A few comments, a few spaces, moved a code block.
+
+2001-08-08  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* matrix.h:
+	Changed: Storage allocation is now a lot more efficient. Removed
+	unneeded checks for empty storage.
+
+	* test/mattest.cpp:
+	Changed: Basic matrix operations tests.  There was a segfault lurking
+	there.
+
+	* svector.h: Changed: Just spaces.
+
+	* vector.h, svector.h:
+	Changed: Replaced *this with (*this) to keep code readable.  Replaced
+	1.0's with 1's, 0.0's with 0's.  This allows integral types in some
+	cases.
+
+	* smatrix.h:
+	Changed: Added members operator /(T value), operator /(const
+	CWTSquareMatrix &) and operator /=(const CWTSquareMatrix &).  Replaced
+	*this with (*this) to keep code readable.  Replaced 1.0's with 1's,
+	0.0's with 0's.  This allows integral types in some cases.
+
+	* quatern.h:
+	Changed: Replaced *this with (*this) to keep code readable.  Replaced
+	1.0's with 1's, 0.0's with 0's.  This allows integral types in some
+	cases.
+
+	* matrix.h:
+	Changed: Removed SCALAR template argument. Templates now have only one
+	argument: class T.  Replaced 1.0's with 1's, 0.0's with 0's.  This
+	allows integral types in some cases.
+
+	* coordsys.h:
+	Changed: All 1.0's into 1's, all 0.0's into 0's.  This allows integral
+	types in some cases (Not relevant for this file.)
+
+2001-08-07  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* matrix.h:
+	Added: New member StoreSum(const CWTMatrix &, const CWTMatrix &);
+
+2001-06-26  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* coordsys.h:
+	Changed: Implemented speed tip from Jeffrey T Duncan: use the
+	identity: 1 = q0^2 + q1^2 + q2^2 + q3^2.
+
+	* TODO: Updated.
+
+2001-05-09  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* ChangeLog: Updated.
+
+	* test/mattest.cpp, quatern.h:
+	Fixed: I got the sequence wrong in the division operator. p/q should
+	be p*inv(q).
+
+	* TODO: Updated.
+
+	* quatern.h:
+	Changed: Slight optimisation by limiting the number of calls to
+	subscript operator in inv().
+
+	* ChangeLog: Updated.
+
+	* quatern.h:
+	Fixed: Quaternion inverse: inv(q) = conj(q)/norm(q)**2. I forgot the
+	square power in the original implementation.
+
+2001-05-08  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* test/mattest.cpp, quatern.h:
+	Added: Function to compute the inverse of a quaternion.
+
+	* test/mattest.cpp, quatern.h:
+	Added: operator /(CWQuaternion &) and operator /=(CWQuaternion &).
+
+2001-03-11  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* ChangeLog: Updated.
+
+	* coordsys.h:
+	Changed: Made computation of quaternion from Euler angles slight more
+	efficient.
+
+	* ChangeLog: Updated.
+
+	* test/mattest.cpp:
+	Added: Test for computing quaternion from Euler axis-and-angle.
+
+	* coordsys.h:
+	Changed: Removed duplicated code from computing quaternions from Euler
+	axis-and-angle representation. Computing a quaternion from Euler
+	angles now works by multiplying 3 quaternions for successive rotations
+	about Z, Y and X-axis instead of using the coefficients of the
+	corresponding transformation matrix.
+
+2001-03-04  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* doc/cwmtx.txt: Changed: Adapted docs for CWTQuaternion ctors.
+
+	* ChangeLog: Updated.
+
+	* test/mattest.cpp:
+	Changed: Adapted tests of ctor for exponential form slightly because
+	ctor profile has changed.
+
+	* quatern.h:
+	Changed: Reduced the set of ctors for exponential form to a single
+	ctor and fixed bug caused by removal of side effect of
+	CWTVector<T>::Norm() member function (see ChangeLog entry 2001-01-20).
+
+2001-03-03  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* test/mattest.cpp:
+	Changed: Re-typed "float" variables to "double" variables.
+
+	* svector.h, quatern.h, coordsys.h:
+	Changed: Optimised the code by reducing the number of calls to CPU
+	expensive functions.
+
+2001-02-14  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* TODO, coordsys.h: Updated: TODO.
+
+2001-01-23  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* README: Changed: Installation instructions improved.
+
+	* svector.h, test/mattest.cpp:
+	Changed: Removed redundant code from CWTSpaceVector inner product.
+
+2001-01-22  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* coordsys.h: Changed: Small optimisations.
+
+2001-01-21  Harry Kuiper  <hkuiper@coopernet>
+
+	* vector.h (CwMtx): Added function norm(const CWTVector<T> &vec).
+
+	* Makefile (install): Added install target.
+
+2001-01-20  Harry Kuiper  <hkuiper@coopernet>
+
+	* vector.h (Unit): Member Unit() no longer changes norm of this as
+	a side effect.
+
+2000-11-22  Harry Kuiper  <hkuiper@coopernet>
+
+	* smatrix.h: Removed template function
+	SmatUnity(unsigned). Because it did not work because it had no
+	template arguments.
+
+2000-06-17  Jiri Ecer <jiri@soonet.ca>
+
+    * Added new constructor to CWQuaternion.h that allow the construction
+      of a quaternion from its exponential form. Updated the test program
+      and the documentation to reflect this addition.
+
+    * Added Makefile with an "install" target.
+
+2000-03-28  Will DeVore <radiance@mediaone.net>
+
+	* Converted all classes to templates. .cpp files are no longer
+	required
+
+	* Created namespace called "CwMtx". Remember to use the directive
+	"using namespace CwMtx" where ever you use the
+	templates. mattest.cpp shows examples.
+
+	* Added several new methods:
+		1) svector.h
+		SpaceVector template has one additional method for
+		getting the inner product. With out it the matrix*vector
+		method was attempting to be instantiated causing a compile
+		error.
+		Note: this may be a good place to add virtual functions?
+		T    operator *(const CWTSpaceVector &) const;
+
+		2) vector.h
+		Vector template has two new methods:
+		T Norm() const;	// or Length
+		CWTVector Unit();
+
+		3) Coordsys.h template functions file has a few new methods for
+		working with Axis-Angles and ChangeOfBasis:
+		CWTVector<T> AxisAngleFromQtn( const CWTQuaternion<T> &qtn )
+		CWTQuaternion<T> QtnFromAxisAngle( const CWTVector<T> &vAxis
+			, const T sAngle )
+		CWTSquareMatrix<T> ChangeOfBasis( 
+			CWTSpaceVector< CWTSpaceVector<T> >& from ,
+			CWTSpaceVector< CWTSpaceVector<T> >& to )
+
+	* mattest.cpp file has been updated to test most of the templates
+	functionality. I need to add more code to do a through test.
+
+	* cwmtx.h has been changed to add several predefined types to matched
+	the original class definitions. Some additional ones were added to test
+	the embedded capabilities of the templates. See the method
+	"ChangeOfBasis"
+
+2000-04-05  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* matrix.h: Changed typedef SCLR form float to double.
+
+2000-03-18 Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* coordsys.cpp (QtnFromSmat): Added alternate ways of calculating
+	the resulting quaternion for cases in which loss of accuracy could
+	occur.
+
+	* smatrix.cpp (tr): Implemented trace function, see below.
+
+	* smatrix.h: Added function tr(smat) to calculate the trace of a
+	square matrix.
+
+1999-10-29  Harry Kuiper  <hkuiper@xs4all.nl>
+
+	* ADDED: This file.
+
+	* $Id: ChangeLog 166 2008-01-19 19:56:57Z hkuiper $ 
+

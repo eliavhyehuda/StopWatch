@@ -1,0 +1,130 @@
+NAME
+
+   qfilter - filters quaternion orientation data
+
+
+SYNOPSIS
+
+  qfilter [-m mask] [-g gain] [-i iter] [-f tm1] [-l tm2]
+          [-b] [-e] [-v] [-h] [in_file [out_file]]
+
+
+DESCRIPTION
+
+  This program applies a time domain filter to a time series of
+  orientation data expressed as unit quaternions, see [1]. The filter
+  mask specified by the -m option determines the effect of the
+  filtering, e.g. smoothing, blurring, etc. The input series is read
+  from file in_file and written to file out_file.
+
+
+OPTIONS
+
+  -m mask  Path of a file containing the filter mask. When omitted
+           qfilter uses a builtin smoothing filter mask with
+           coefficients: -1/24, 4/24, (24 - 6)/24, 4/24, -1/24.
+
+  -g gain  Filter gain. Default=1.
+
+  -i iter  Number of iterations. Default=1.
+
+  -f tm1   The first data point that will be processed has a time/index
+           value >= tm1.
+
+  -l tm2   The last data point that will be processed has a time/index
+           value <= tm2.
+
+  -b       Preserve begin point.
+
+  -e       Preserve end point.
+
+  -v       Print program version.
+
+  -h       Print a help message.
+
+
+OPERANDS
+
+  in_file  Path of a file that contains the orientation data to be
+           filtered. When omitted or '-' input is read from standard input.
+
+  out_file Path of a file that receives the filtered output data. When
+           omitted or '-' output is written to standard output.
+
+
+FILTER MASK FILE FORMAT
+
+  The filter mask file should contain one filter coefficient per
+  line. The number of coefficients must be odd, see [1]. This program
+  comes with three filter masks, one for smoothing (qfmask-smooth),
+  one for blurring (qfmask-blur) and one for sharpening
+  (qfmask-sharpen). In [1] it is explained how to derive new filter
+  masks.
+
+
+INPUT FILE FORMAT
+
+  Qfilter expects each line in the input file to contain five values
+  separated by whitespace.
+
+  The first value is interpreted as a time value. This value need not
+  be a real time value it can also be an index. The value must be
+  numeric (integer or floating point). For options -f and -l to work
+  properly it is important that the time/index value increases with
+  each line in the file
+
+  The remaining four values are interpreted as the elements of a
+  quaternion. The second, third and fourth value on the line are the
+  elements of the imaginary part of the quaternion, the last value
+  vector is its real element. In summary, the line:
+
+    11.000    0.398   -0.096   -0.261    0.874
+
+  is interpreted as time/index 11.000 followed by the quaternion
+
+    q = 0.398i - 0.096j - 0.261k + 0.874
+
+
+TIPS & TRICKS
+
+  Standard input and output can be named explicitly by specifying '-'
+  instead of a filename. In combination with options -f and -l this
+  can be used to filter two parts of the same series with different
+  settings in one go. For example:
+
+  $ qfilter -l 50 -i 5 <qseries> | qfilter -f 51 -i 10 - out_file
+
+  This filters points up-to (and including) 50 with 5 iterations and
+  the points from 51 (inclusive) to the end of the file with 10
+  iterations using the builtin smoothing filter mask.
+
+REFERENCES
+
+  [1] This filter method was published by Jehee Lee and Sung Yong Shin
+      in an article titled "General Construction of Time-Domain
+      Filters for Orientation Data" in IEEE transactions on
+      visualization and computer graphics, vol 8, no. 2, april-june
+      2002.
+
+
+AUTHOR
+
+    Written by Harry Kuiper.
+
+REPORTING BUGS
+
+    Report bugs to hkuiper@xs4all.nl.
+
+
+BUGS
+
+    Hangs when options that require an argument are specified without an
+    argument.
+
+
+COPYRIGHTS
+
+  Copyright (C) 2004 Harry Kuiper, hkuiper@xs4all.nl. This is free
+  software; see the source for copying conditions.  There is NO
+  warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR
+  PURPOSE.

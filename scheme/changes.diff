@@ -1,0 +1,33 @@
+diff -N tinyscheme/scheme.c /home/mterry/Downloads/tinyscheme-1.41/scheme.c
+15,17d14
+< #pragma GCC diagnostic push
+< #pragma GCC diagnostic ignored "-Wswitch"
+< 
+332d328
+< static int print_result(scheme *sc);
+1373,1379d1368
+< static int global_print_result = 1;
+< static int print_result(scheme *sc) {
+<  return sc->file_i==0
+<      && sc->inport->_object._port->kind&port_string
+<      && global_print_result != 0;
+< }
+< 
+2568c2557
+<        if(print_result(sc)) {
+---
+>        if(file_interactive(sc)) {
+4844,4850d4832
+< void scheme_load_string_silent(scheme *sc, const char *cmd) {
+<   int old_print = global_print_result;
+<   global_print_result = 0;
+<   scheme_load_string(sc, cmd);
+<   global_print_result = old_print;
+< }
+< 
+5070d5051
+< #pragma GCC diagnostic pop
+diff -N tinyscheme/scheme.h /home/mterry/Downloads/tinyscheme-1.41/scheme.h
+142,143d141
+< SCHEME_EXPORT void scheme_load_string_silent(scheme *sc, const char *cmd);
+< 

@@ -1,0 +1,34 @@
+
+CS349 ASSIGNMENT 1 MARKING SCHEME
+MARKED BY:  diane.watson(@uwaterloo.ca)
+
+GUIDELINES
+The assignment needs to compile and run in order for the TA to mark it. If it doesn't compile, but the TA is able to get it working, you will only lose marks for the "Compiles and runs" section. If they cannot get it to compile, you receive zero for the assignment.
+
+MARKS
+Total: 97/100
+
+Compiles and Runs (5%)
+[5/5] Compiles and runs using the included makefile
+
+Toolkit Implementation (30%)
+[15/15] TODO items implemented and 'A1MarkingEventQueueTests' runs without errors
+[10/10] CPU usage remains below 50%
+[5/5] UI is responsive to user input
+
+Stopwatch: Basic Functionality (20%)
+[5/5] Window drawn, and is resizable and responsive
+[5/5] Numeric and graphical displays are displayed
+[5/5] Numeric display updates properly when running
+[5/5] Graphical display updated properly when running
+
+Stopwatch: Usability (35%)
+[7/7] Start stopwatch
+[7/7] Pause it
+[6/7] Unpause it	
+ Could spell out the entire word "continue"
+[7/7] Reset to zero
+[7/7] Visual design
+
+Stopwatch: Testing (10%)
+[8/10] Unit tests added that simulate a reasonable number of events; all unit tests pass.

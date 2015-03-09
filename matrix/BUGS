@@ -1,0 +1,25 @@
+$Id: BUGS 166 2008-01-19 19:56:57Z hkuiper $
+------------------------------------------------------------------------------
+CwMtx has been used inseveral simulation models, so there should not be many
+bugs left in the code. However, If you think you've found a bug in CwMtx
+please let me know. Send a description of the bug - and if possible the code
+fragment that made the bug show up - to:
+
+   hkuiper@xs4all.nl
+
+I make no guarantees that a bug will be solved quickly but I will take each
+bugreport seriously and if my spare time permits I will try to solve it. Or,
+if you like, feel free to solve the bug yourself and send me your solution. I
+will incorporate it in the next release of CwMtx.
+
+------------------------------------------------------------------------------
+Known bugs:
+
+* Lots! Just can't find them.
+
+
+Local Variables:
+mode: text
+fill-column: 78
+End:
+

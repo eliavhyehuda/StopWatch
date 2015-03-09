@@ -1,0 +1,17 @@
+$Id: TODO 166 2008-01-19 19:56:57Z hkuiper $
+----------------------------------------------------------------------------
+
+* Write a tutorial.
+
+* Further optimisation for speed.
+
+* Implement a better matrix inversion algorithm (one that is faster and uses
+  less resources)
+
+* Keep improving the test program.
+
+
+Local Variables:
+mode: text
+fill-column: 78
+End:

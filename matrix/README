@@ -1,0 +1,53 @@
+SOFTWARE DESCRIPTION 
+
+CwMtx is a template library written in C++ that provides the matrix
+and vector operations that are used extensively in engineering and
+science problems. This library also implements block matrices by
+allowing sub-matrices to be mapped into a larger matrix.
+
+A special feature of this library is the Quaternion class which
+implements quaternion math. Quaternions are very useful for attitude
+determination in 3D space because they do not suffer from
+singularities. Furthermore, successive rotations and transformations
+of vectors can be accomplished by simple quaternion
+multiplication. Attitude dynamics can be expressed in a very compact
+form using quaternions.
+
+For more information on quaternions and their applications, see:
+"Spacecraft attitude determination and control", Edited by James
+Wertz, D. Reidel Publishing Company, Dordrecht: Holland, Boston:
+U.S.A., London: England.
+
+
+INSTALLATION
+
+Extract the tar-file in a suitable directory:
+
+> cd where/you/want/it
+> tar xzf cwmtx-x.y.z.tar.gz
+or
+> gunzip -c cwmtx-x.y.z.tar.gz | tar xf -
+or
+> gzip -cd cwmtx-x.y.z.tar.gz | tar xf -
+
+Change into the new directory cwmtx-x.y.z:
+
+> cd cwmtx-x.y.z
+
+The header files can be installed were you want, but you have to edit
+the Makefile first. Find the line that reads: 
+
+  INSTALL_DIR=/home/hkuiper/include/cwmtx
+
+and change the path into the location where you want the headers to be
+installed. (Probably /usr/local/include is a logical place)
+
+To do the install type:
+
+> make install
+
+
+Local Variables:
+mode: text
+fill-column: 78
+End:
